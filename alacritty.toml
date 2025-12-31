@@ -1,6 +1,26 @@
 [env]
 TERM = "xterm-256color"
 
+[terminal.shell]
+program = "/opt/homebrew/bin/tmux"
+args = ["new-session", "-A", "-D", "-s", "main"]
+
+[keyboard]
+bindings = [
+  # Splits
+  { key = 'D', mods = 'Command', chars = "\u0002\"" },
+  { key = 'D', mods = 'Command|Shift', chars = "\u0002%" },
+  { key = 'O', mods = 'Command', chars = "\u0002o" },  # C-b p = previous pane (focus only)
+
+    # Left/Right swap (horizontal)
+  { key = 'Left', mods = 'Command', chars = "\u0002{" },
+  { key = 'Right', mods = 'Command', chars = "\u0002}" },
+
+  # Vertical swaps using rotate (works perfectly)
+  { key = 'Up', mods = 'Command', chars = "\u0002{" },    # Cmd+Up = rotate layout
+  { key = 'Down', mods = 'Command', chars = "\u0002}" }   # Cmd+Down = rotate layout
+]
+
 [window]
 padding.x = 6
 padding.y = 6
@@ -21,3 +41,13 @@ size = 16
 [cursor]
 # blinking = "on"
 # vi_modde_style = "Beam"
+
+[colors.normal]
+red = '#FF9DFF'
+blue = '#008EFF'
+green = '#50FF48'
+magenta = '#B8A1FF'
+#magenta = '#BCBCFF'
+white = '#DDDDDD'
+
+[terminal]
