@@ -18,7 +18,9 @@ bindings = [
 
   # Vertical swaps using rotate (works perfectly)
   { key = 'Up', mods = 'Command', chars = "\u0002{" },    # Cmd+Up = rotate layout
-  { key = 'Down', mods = 'Command', chars = "\u0002}" }   # Cmd+Down = rotate layout
+  { key = 'Down', mods = 'Command', chars = "\u0002}" },   # Cmd+Down = rotate layout
+  # Floating overlay window (tmux popup)
+  { key = 'P', mods = 'Command', chars = "\u0002:popup -w90% -h80% -d '#{pane_current_path}' 'htop'\\r" }
 ]
 
 [window]
@@ -35,9 +37,11 @@ option_as_alt = "Both"
 [font]
 normal.family = "DaddyTimeMono Nerd Font"
 size = 16
-#style = "Retina"
-#AppleFontSmoothing = "true"
 
+# 以下の offset 設定を追加します
+[font.offset]
+x = 0
+y = 1  # 記号が上に浮いている場合は 1、下に沈んでいる場合は -1 を試してください
 [cursor]
 # blinking = "on"
 # vi_modde_style = "Beam"
